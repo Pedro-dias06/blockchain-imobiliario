@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Imobiliário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🏛️ Fórum Digital </h1>
+        <p>Sistema de Registro Imobiliário via Blockchain e RSA</p>
+    </header>
+    
+    <div class="container">
+        <div class="painel-esquerdo">
+            
+            <div class="caixa-form carteira-box">
+                <h2>1. Minha Carteira Digital</h2>
+                <p style="font-size: 12px;">Para fazer transferências, você precisa de um par de chaves.</p>
+                <button onclick="gerarChaves()" class="btn-secundario">🔑 Gerar Novas Chaves</button>
+                
+                <label>Sua Chave Pública (Compartilhe):</label>
+                <textarea id="minha_pub" readonly rows="2"></textarea>
+                
+                <label>Sua Chave Privada (SECRETA):</label>
+                <textarea id="minha_priv" readonly rows="2"></textarea>
+            </div>
+
+            <div class="caixa-form">
+                <h2>2. Transferir Imóvel</h2>
+                
+                <label>Matrícula do Imóvel:</label>
+                <input type="text" id="matricula" placeholder="Ex: MAT-001">
+                
+                <label>Chave Pública do Destinatário:</label>
+                <input type="text" id="chave_destinatario" placeholder="Cole a chave pública do comprador">
+                
+                <label>Para assinar, cole sua Chave Privada aqui:</label>
+                <input type="password" id="chave_privada_assinatura" placeholder="Sua chave privada">
+                
+                <button onclick="registrarImovel()" class="btn-primario">✍️ Assinar e Minerar Bloco</button>
+            </div>
+        </div>
+
+        <div class="painel-direito" id="cadeia-blocos">
+            </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
