@@ -1,64 +1,248 @@
+/* =====================================================================
+   Reset & Base
+   ===================================================================== */
 * { box-sizing: border-box; }
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: #1e1e2f; 
-    color: #e0e0e0; 
-    margin: 0; padding: 0; 
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+    margin: 0; padding: 0;
 }
 
-header { background-color: #2b2b40; padding: 20px; text-align: center; border-bottom: 2px solid #3b3b55; }
-header h1 { margin: 0; color: #4db8ff; }
+/* =====================================================================
+   Header
+   ===================================================================== */
+header {
+    background-color: #2b2b40;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #3b3b55;
+}
+header h1 { margin: 0; color: #4db8ff; font-size: 1.8rem; }
+header p  { margin: 6px 0 0; color: #888; font-size: 0.9rem; }
 
-.container { 
-    display: flex; 
-    max-width: 1200px; 
-    margin: 30px auto; 
-    gap: 30px; 
-    padding: 0 20px; 
+/* =====================================================================
+   Layout
+   ===================================================================== */
+.container {
+    display: flex;
+    max-width: 1300px;
+    margin: 30px auto;
+    gap: 30px;
+    padding: 0 20px;
     align-items: flex-start;
 }
 
-.painel-esquerdo { width: 40%; display: flex; flex-direction: column; gap: 20px; }
-.caixa-form { background: #2b2b40; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-.caixa-form h2 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px; font-size: 1.2rem; color: #fff;}
-.carteira-box { border: 1px solid #4db8ff; }
+.painel-esquerdo { width: 38%; display: flex; flex-direction: column; gap: 20px; }
+.painel-direito  { width: 62%; }
 
-label { display: block; margin: 15px 0 5px; font-weight: bold; font-size: 0.9rem; color: #aaa; }
-input, textarea { 
-    width: 100%; padding: 10px; background: #1e1e2f; 
-    border: 1px solid #444; border-radius: 4px; color: #fff; font-family: monospace;
+/* =====================================================================
+   Caixas de formulário
+   ===================================================================== */
+.caixa-form {
+    background: #2b2b40;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+.caixa-form h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #3b3b55;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+.carteira-box { border: 1px solid #4db8ff; }
+.p2p-box      { border: 1px solid #2ecc71; }
+
+.descricao { font-size: 0.82rem; color: #888; margin: 0 0 12px; }
+
+/* =====================================================================
+   Inputs
+   ===================================================================== */
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 5px;
+    font-weight: bold;
+    font-size: 0.88rem;
+    color: #aaa;
+}
+input, textarea {
+    width: 100%; padding: 10px;
+    background: #1e1e2f;
+    border: 1px solid #3b3b55;
+    border-radius: 4px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 0.82rem;
+    resize: vertical;
 }
 input:focus, textarea:focus { border-color: #4db8ff; outline: none; }
 
-button { width: 100%; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 15px; }
-.btn-primario { background-color: #27ae60; color: white; }
-.btn-primario:hover { background-color: #219653; }
-.btn-secundario { background-color: #2980b9; color: white; }
-.btn-secundario:hover { background-color: #2471a3; }
+/* =====================================================================
+   Botões
+   ===================================================================== */
+button {
+    width: 100%; padding: 11px;
+    border: none; border-radius: 5px;
+    cursor: pointer; font-weight: bold;
+    margin-top: 14px; font-size: 0.92rem;
+    transition: background 0.2s;
+}
+button:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.painel-direito { width: 60%; background: transparent; }
-.bloco { background: #2b2b40; border-radius: 8px; border-left: 5px solid #4db8ff; margin-bottom: 15px; }
+.btn-primario   { background-color: #27ae60; color: #fff; }
+.btn-primario:hover:not(:disabled) { background-color: #219653; }
+
+.btn-secundario { background-color: #2980b9; color: #fff; }
+.btn-secundario:hover:not(:disabled) { background-color: #2471a3; }
+
+.btn-validar  { background: #8e44ad; color: #fff; padding: 8px 14px; width: auto; margin: 0; font-size: 0.85rem; }
+.btn-validar:hover { background: #7d3c98; }
+
+.btn-atualizar { background: #2c3e50; color: #aaa; padding: 8px 14px; width: auto; margin: 0; font-size: 0.85rem; }
+.btn-atualizar:hover { background: #34495e; color: #fff; }
+
+/* =====================================================================
+   Badges
+   ===================================================================== */
+.badge {
+    font-size: 0.72rem; font-weight: 600;
+    padding: 2px 7px; border-radius: 99px;
+}
+.badge-ok   { background: #1a4731; color: #2ecc71; }
+.badge-warn { background: #4a3000; color: #f39c12; }
+
+/* =====================================================================
+   Explorador de Blocos
+   ===================================================================== */
+.explorador-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.explorador-header h2 { margin: 0; font-size: 1.1rem; }
+.explorador-acoes { display: flex; gap: 8px; }
+
+.carregando { color: #666; font-style: italic; }
+
+.status-banner {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+}
+.banner-ok   { background: #1a4731; color: #2ecc71; }
+.banner-erro { background: #4a0000; color: #e74c3c; }
+
+/* Blocos */
+.bloco {
+    background: #2b2b40;
+    border-radius: 8px;
+    border-left: 5px solid #4db8ff;
+    margin-bottom: 6px;
+}
 .bloco-genese { border-left-color: #9b59b6; }
-.bloco-header { background: #3b3b55; padding: 10px 15px; font-weight: bold; border-radius: 8px 8px 0 0; }
-.bloco-body { padding: 15px; font-size: 0.9rem; }
-.hash { font-family: monospace; color: #f1c40f; word-break: break-all; }
-.seta { text-align: center; color: #fff; font-size: 1.5rem; margin-bottom: 15px; }
 
-@media (max-width: 850px) {
-    .container {
-        flex-direction: column; 
-        align-items: center;
-    }
-    
-    .painel-esquerdo, .painel-direito {
-        width: 100%; 
-    }
+.bloco-header {
+    background: #3b3b55;
+    padding: 9px 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bloco-ts { font-size: 0.75rem; color: #888; font-weight: normal; }
 
-    header h1 {
-        font-size: 1.5rem; 
-    }
+.bloco-body { padding: 14px 15px; font-size: 0.88rem; }
 
-    .bloco-body {
-        font-size: 0.8rem; 
-    }
+.dado-linha {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+.dado-label {
+    font-size: 0.75rem;
+    color: #888;
+    min-width: 95px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.bloco-rodape {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #3b3b55;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hash { font-family: monospace; color: #f1c40f; word-break: break-all; font-size: 0.8rem; }
+.mono { font-family: monospace; font-size: 0.82rem; }
+
+.seta { text-align: center; color: #555; font-size: 1.2rem; margin: 4px 0; }
+
+/* =====================================================================
+   Rede P2P
+   ===================================================================== */
+.lista-nos {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.no-item {
+    background: #1e1e2f;
+    border: 1px solid #2ecc71;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 0.83rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sem-dados { font-size: 0.82rem; color: #555; margin: 0; }
+
+/* =====================================================================
+   Toast Notifications
+   ===================================================================== */
+.toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    padding: 13px 20px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+    max-width: 380px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.toast-visivel { opacity: 1; transform: translateY(0); }
+.toast-ok    { background: #1a4731; color: #2ecc71; border: 1px solid #2ecc71; }
+.toast-warn  { background: #4a3000; color: #f39c12; border: 1px solid #f39c12; }
+.toast-erro  { background: #4a0000; color: #e74c3c; border: 1px solid #e74c3c; }
+.toast-info  { background: #1a2a4a; color: #4db8ff; border: 1px solid #4db8ff; }
+
+/* =====================================================================
+   Responsivo
+   ===================================================================== */
+@media (max-width: 900px) {
+    .container { flex-direction: column; }
+    .painel-esquerdo, .painel-direito { width: 100%; }
+    header h1 { font-size: 1.4rem; }
+    .explorador-header { flex-direction: column; align-items: flex-start; gap: 10px; }
 }

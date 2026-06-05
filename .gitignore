@@ -1,15 +1,48 @@
-# Arquivos de Teste Locais
-teste_cripto.py
+# ========================
+# Banco de Dados
+# ========================
+*.db
+*.sqlite
+*.sqlite3
 
-# Ambientes Virtuais 
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ========================
+# Ambientes Virtuais
+# ========================
 .venv/
 venv/
 env/
+ENV/
 
-# Cache e arquivos compilados do Python
-__pycache__/
-*.pyc
+# ========================
+# Arquivos de Teste
+# ========================
+teste_cripto.py
 
-# Arquivos do Mac/Windows
+# ========================
+# Logs e processos
+# ========================
+nohup.out
+*.log
+
+# ========================
+# Sistema Operacional
+# ========================
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ========================
+# IDEs e Editores
+# ========================
+.vscode/
+.idea/
+*.suo
+*.user

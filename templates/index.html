@@ -2,48 +2,78 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Blockchain Imobiliário</title>
+    <title>Fórum Digital — Blockchain Imobiliário</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>🏛️ Fórum Digital </h1>
-        <p>Sistema de Registro Imobiliário via Blockchain e RSA</p>
+        <h1>🏛️ Fórum Digital</h1>
+        <p>Sistema de Registro Imobiliário via Blockchain, RSA e Rede P2P</p>
     </header>
-    
+
     <div class="container">
+
+        <!-- ==================== PAINEL ESQUERDO ==================== -->
         <div class="painel-esquerdo">
-            
+
+            <!-- 1. Carteira -->
             <div class="caixa-form carteira-box">
                 <h2>1. Minha Carteira Digital</h2>
-                <p style="font-size: 12px;">Para fazer transferências, você precisa de um par de chaves.</p>
+                <p class="descricao">Gere um par de chaves RSA para assinar transações.</p>
                 <button onclick="gerarChaves()" class="btn-secundario">🔑 Gerar Novas Chaves</button>
-                
-                <label>Sua Chave Pública (Compartilhe):</label>
-                <textarea id="minha_pub" readonly rows="2"></textarea>
-                
-                <label>Sua Chave Privada (SECRETA):</label>
-                <textarea id="minha_priv" readonly rows="2"></textarea>
+
+                <label>Chave Pública <span class="badge badge-ok">Compartilhe</span></label>
+                <textarea id="minha_pub" readonly rows="3"></textarea>
+
+                <label>Chave Privada <span class="badge badge-warn">Guarde em segredo</span></label>
+                <textarea id="minha_priv" readonly rows="3"></textarea>
             </div>
 
+            <!-- 2. Transferir Imóvel -->
             <div class="caixa-form">
                 <h2>2. Transferir Imóvel</h2>
-                
+
                 <label>Matrícula do Imóvel:</label>
                 <input type="text" id="matricula" placeholder="Ex: MAT-001">
-                
+
                 <label>Chave Pública do Destinatário:</label>
-                <input type="text" id="chave_destinatario" placeholder="Cole a chave pública do comprador">
-                
-                <label>Para assinar, cole sua Chave Privada aqui:</label>
-                <input type="password" id="chave_privada_assinatura" placeholder="Sua chave privada">
-                
+                <textarea id="chave_destinatario" rows="3" placeholder="Cole a chave pública do comprador"></textarea>
+
+                <label>Sua Chave Privada (para assinar):</label>
+                <textarea id="chave_privada_assinatura" rows="3" placeholder="Cole sua chave privada aqui"></textarea>
+
                 <button onclick="registrarImovel()" class="btn-primario">✍️ Assinar e Minerar Bloco</button>
             </div>
+
+            <!-- 3. Rede P2P -->
+            <div class="caixa-form p2p-box">
+                <h2>3. Rede P2P</h2>
+                <p class="descricao">Conecte este nó a outros participantes da rede.</p>
+
+                <label>Endereço do Nó Par:</label>
+                <input type="text" id="endereco_no" placeholder="Ex: https://outro-no.pythonanywhere.com">
+                <button onclick="conectarNo()" class="btn-secundario">🔗 Conectar Nó</button>
+
+                <div id="lista-nos" class="lista-nos">
+                    <p class="sem-dados">Nenhum nó conectado.</p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="painel-direito" id="cadeia-blocos">
+        <!-- ==================== PAINEL DIREITO ==================== -->
+        <div class="painel-direito">
+            <div class="explorador-header">
+                <h2>⛓️ Explorador de Blocos</h2>
+                <div class="explorador-acoes">
+                    <button onclick="validarCadeia()" class="btn-validar">🔍 Validar Cadeia</button>
+                    <button onclick="carregarBlockchain()" class="btn-atualizar">↻ Atualizar</button>
+                </div>
             </div>
+            <div id="status-validacao"></div>
+            <div id="cadeia-blocos"></div>
+        </div>
+
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
